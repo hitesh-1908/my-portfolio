@@ -337,6 +337,21 @@
     }
 
     /* ── Navigation Bar ── */
+    .nav-bar-wrap {
+      position: relative;
+    }
+
+    .nav-bar-wrap::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      width: 24px;
+      background: linear-gradient(to right, transparent, var(--bg-panel));
+      pointer-events: none;
+    }
+
     .nav-bar {
       background: var(--bg-panel);
       border-bottom: 1px solid var(--border);
@@ -785,6 +800,11 @@
     }
 
     /* ── Skills table ── */
+    .skill-table-scroll {
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
+    }
+
     .skill-table {
       width: 100%;
       border-collapse: collapse;
@@ -1673,6 +1693,12 @@
       .skill-table td {
         padding: 6px 8px;
       }
+
+      /* Prevent iOS/Android auto-zoom on focus: keep inputs ≥16px on small screens */
+      .cmd-input-field,
+      .term-input-field {
+        font-size: 16px;
+      }
     }
 
     @media (max-width: 640px) {
@@ -1710,6 +1736,16 @@
       .neofetch-box {
         font-size: 11px;
         gap: 4px 12px;
+      }
+
+      .mini-terminal {
+        height: 260px;
+      }
+
+      .nav-tab {
+        min-height: 40px;
+        display: inline-flex;
+        align-items: center;
       }
     }
 
@@ -1805,26 +1841,28 @@
     </div>
 
     <!-- Navigation tabs -->
-    <nav class="nav-bar" id="nav-bar">
-      <button class="nav-tab active" data-target="home" onclick="switchSection('home')">
-        <span class="tab-prefix">~</span>home
-      </button>
-      <button class="nav-tab" data-target="about" onclick="switchSection('about')">
-        <span class="tab-prefix">~</span>about
-      </button>
-      <button class="nav-tab" data-target="skills" onclick="switchSection('skills')">
-        <span class="tab-prefix">~</span>skills
-      </button>
-      <button class="nav-tab" data-target="projects" onclick="switchSection('projects')">
-        <span class="tab-prefix">~</span>projects
-      </button>
-      <button class="nav-tab" data-target="dsa" onclick="switchSection('dsa')">
-        <span class="tab-prefix">~</span>dsa
-      </button>
-      <button class="nav-tab" data-target="contact" onclick="switchSection('contact')">
-        <span class="tab-prefix">~</span>contact
-      </button>
-    </nav>
+    <div class="nav-bar-wrap">
+      <nav class="nav-bar" id="nav-bar">
+        <button class="nav-tab active" data-target="home" onclick="switchSection('home')">
+          <span class="tab-prefix">~</span>home
+        </button>
+        <button class="nav-tab" data-target="about" onclick="switchSection('about')">
+          <span class="tab-prefix">~</span>about
+        </button>
+        <button class="nav-tab" data-target="skills" onclick="switchSection('skills')">
+          <span class="tab-prefix">~</span>skills
+        </button>
+        <button class="nav-tab" data-target="projects" onclick="switchSection('projects')">
+          <span class="tab-prefix">~</span>projects
+        </button>
+        <button class="nav-tab" data-target="dsa" onclick="switchSection('dsa')">
+          <span class="tab-prefix">~</span>dsa
+        </button>
+        <button class="nav-tab" data-target="contact" onclick="switchSection('contact')">
+          <span class="tab-prefix">~</span>contact
+        </button>
+      </nav>
+    </div>
 
     <!-- ═══════════════════ TERMINAL BODY ═══════════════════ -->
     <main class="terminal-body">
@@ -2034,6 +2072,7 @@
             <button class="filter-chip" data-cat="tools" onclick="filterSkills('tools')">tools & os</button>
           </div>
 
+          <div class="skill-table-scroll">
           <table class="skill-table" id="skill-table">
             <thead>
               <tr>
@@ -2150,6 +2189,7 @@
               </tr>
             </tbody>
           </table>
+          </div>
         </div>
 
         <div class="interactive-prompt-block">
@@ -2584,7 +2624,10 @@
       if (sec) sec.classList.add('active');
 
       const tab = document.querySelector(`.nav-tab[data-target="${id}"]`);
-      if (tab) tab.classList.add('active');
+      if (tab) {
+        tab.classList.add('active');
+        tab.scrollIntoView({ behavior: 'smooth', inline: 'center', block: 'nearest' });
+      }
 
       // Scroll to top of section content
       window.scrollTo({ top: 0, behavior: 'instant' });
@@ -2788,6 +2831,19 @@
       const card = document.createElement('div');
       card.className = 'term-output-card';
       const echo = `<div class="cmd-echo"><span class="term-prompt-text">hitesh@dev:~$</span> ${escapeHtml(val)}</div>`;
+
+      // Typing "contact" into the Contact section's generic prompt should
+      // launch the email wizard, matching the mini-terminal's behavior.
+      if (cmd === 'contact' && secId === 'contact') {
+        switchSection('contact');
+        card.innerHTML = `${echo}<span class="text-green">✓ Launching contact wizard...</span>`;
+        if (historyContainer) historyContainer.appendChild(card);
+        startWizard();
+        const miniTerm = document.querySelector('.mini-terminal');
+        if (miniTerm) miniTerm.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+        focusTermInput();
+        return;
+      }
 
       const navMap = {
         home: 'home',
