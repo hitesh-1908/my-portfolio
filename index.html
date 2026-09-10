@@ -3043,6 +3043,7 @@
       msg.innerHTML = `<span class="text-amber">[WIZARD] Initializing mail generator...</span><br>Enter your name:`;
       termHistory.appendChild(msg);
       scrollTerm();
+      setTimeout(() => termInput.focus(), 50);
     }
 
     function handleWizard(input) {
@@ -3066,6 +3067,7 @@
       }
       termHistory.appendChild(step);
       scrollTerm();
+      if (wizardActive) setTimeout(() => termInput.focus(), 50);
     }
 
     function runWizardBuild() {
