@@ -2520,8 +2520,7 @@
                 <span class="mini-term-title">bash — contact.cmd</span>
               </div>
               <div class="mini-term-body" id="mini-term-body" onclick="focusTermInput()">
-                <div class="term-output">Hitesh Portfolio Terminal v1.0.0<br>Type '<span class="text-green">help</span>'
-                  for commands.<br>Type '<span class="text-green">contact</span>' to start the email builder.</div>
+                <div class="term-output">Hitesh Portfolio Terminal v1.0.0<br>Type '<span class="text-green">help</span>' for commands.<br>Type '<span class="text-green">contact</span>' to start the email builder.</div>
                 <div id="term-history"></div>
                 <div class="term-input-row">
                   <span class="term-prompt-text">hitesh@dev:~$</span>
@@ -3059,6 +3058,14 @@
         step.innerHTML = `Name: <span class="text-cyan">${escapeHtml(input)}</span><br>Enter your email:`;
         wizardStep = 2;
       } else if (wizardStep === 2) {
+        const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        if (!emailPattern.test(input)) {
+          step.innerHTML = `<span class="text-red">✗ "${escapeHtml(input)}" doesn't look like a valid email.</span><br>Enter your email:`;
+          termHistory.appendChild(step);
+          scrollTerm();
+          if (wizardActive) setTimeout(() => termInput.focus(), 50);
+          return; // stay on step 2, don't advance wizardStep
+        }
         contactData.email = input;
         step.innerHTML = `Email: <span class="text-cyan">${escapeHtml(input)}</span><br>Type your message:`;
         wizardStep = 3;
