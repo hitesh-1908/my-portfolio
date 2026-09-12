@@ -2526,7 +2526,7 @@
                 <div class="term-input-row">
                   <span class="term-prompt-text">hitesh@dev:~$</span>
                   <input type="text" class="term-input-field" id="term-input" placeholder="Type a command..."
-                    autocomplete="off" spellcheck="false" />
+                    autocomplete="off" spellcheck="false" enterkeyhint="send" />
                 </div>
               </div>
             </div>
@@ -2543,7 +2543,7 @@
             <div class="input-wrapper">
               <input type="text" class="cmd-input-field" data-sec="contact"
                 placeholder="type a command (help, projects, theme, contact...)" autocomplete="off"
-                spellcheck="false" />
+                spellcheck="false" enterkeyhint="send" />
             </div>
           </div>
         </div>
@@ -2822,6 +2822,11 @@
       const secId = inputEl.dataset.sec || 'home';
       const historyContainer = document.getElementById(`cmd-output-${secId}`);
       const cmd = val.toLowerCase();
+
+      if (wizardActive && secId === 'contact') {
+        handleWizard(val);
+        return;
+      }
 
       if (cmd === 'clear' || cmd === 'cls') {
         if (historyContainer) historyContainer.innerHTML = '';
