@@ -2891,7 +2891,8 @@
           `  • <span class="text-green">cat &lt;file&gt;</span> — view file (e.g. cat about.md)<br>` +
           `  • <span class="text-green">whoami</span> — view developer info<br>` +
           `  • <span class="text-green">uptime</span> — view session duration<br>` +
-          `  • <span class="text-green">resume</span> — open GitHub profile<br>` +
+          `  • <span class="text-green">resume</span> — download/open resume PDF<br>` +
+          `  • <span class="text-green">github</span> — open GitHub profile<br>` +
           `  • <span class="text-green">clear</span> — clear output history`;
       } else if (cmd === 'ls' || cmd === 'dir') {
         card.innerHTML = `${echo}<span class="text-cyan">about.md</span>   <span class="text-amber">skills.sh</span>   <span class="text-green">projects/</span>   <span class="text-purple">dsa_stats.py</span>   <span class="text-cyan">contact.sh</span>`;
@@ -2911,7 +2912,10 @@
         card.innerHTML = `${echo}<span class="text-cyan">${new Date().toString()}</span>`;
       } else if (cmd === 'sudo') {
         card.innerHTML = `${echo}<span class="text-amber">Permission denied:</span> Hitesh is root. Try typing '<span class="text-green">contact</span>' to reach out 😉`;
-      } else if (cmd === 'resume' || cmd === 'github') {
+      } else if (cmd === 'resume') {
+        card.innerHTML = `${echo}<span class="text-green">Opening resume...</span>`;
+        window.open('Hitesh_Bhattad_resume.pdf', '_blank');
+      } else if (cmd === 'github') {
         card.innerHTML = `${echo}<span class="text-green">Opening GitHub profile...</span>`;
         window.open('https://github.com/hitesh-1908', '_blank');
       } else if (cmd.startsWith('theme')) {
@@ -2972,12 +2976,13 @@
     let contactData = { name: '', email: '', message: '' };
 
     const cmds = {
-      help: "Available commands:\n  help      — display command index\n  about     — brief developer bio\n  skills    — show tech stack list\n  projects  — view featured items\n  dsa       — check DSA status\n  theme     — toggle theme (system/light/dark)\n  contact   — start email wizard\n  resume    — open GitHub profile\n  whoami    — who am i?\n  uptime    — session uptime\n  clear     — clear console",
+      help: "Available commands:\n  help      — display command index\n  about     — brief developer bio\n  skills    — show tech stack list\n  projects  — view featured items\n  dsa       — check DSA status\n  theme     — toggle theme (system/light/dark)\n  contact   — start email wizard\n  resume    — download/open resume PDF\n  github    — open GitHub profile\n  whoami    — who am i?\n  uptime    — session uptime\n  clear     — clear console",
       about: "Hitesh Bhattad — Java Backend Developer & DSA Enthusiast\nPursuing B.Tech IT, GCOE Amravati, MH, India",
       skills: "Languages: Java, Python, SQL, Javascript\nFrameworks: Spring Boot, React\nTools: Git, Linux CLI, Docker (Basics)",
       projects: "Featured Projects:\n  • Amravati Dashboard [React]\n  • DSA Tracker [Java, Spring Boot]\n  • Secure REST Template [JWT, Docker]",
       dsa: "LeetCode stats: 21+ Solved\nStreak: 5 Days",
-      resume: "Opening GitHub → https://github.com/hitesh-1908",
+      resume: "Opening resume → Hitesh_Bhattad_resume.pdf",
+      github: "Opening GitHub → https://github.com/hitesh-1908",
       whoami: "hitesh — Java Backend Developer\nPID: 1908 | PPID: 2006",
     };
 
@@ -3043,7 +3048,8 @@
 
         if (cmds[cmd]) {
           resp.innerHTML = cmds[cmd].replace(/\n/g, '<br>');
-          if (cmd === 'resume') window.open('https://github.com/hitesh-1908', '_blank');
+          if (cmd === 'resume') window.open('Hitesh_Bhattad_resume.pdf', '_blank');
+          if (cmd === 'github') window.open('https://github.com/hitesh-1908', '_blank');
           if (['home', 'about', 'skills', 'projects', 'dsa', 'contact'].includes(cmd)) {
             switchSection(cmd);
           }
