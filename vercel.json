@@ -1,0 +1,23 @@
+{
+  "rewrites": [
+    {
+      "source": "/api/leetcode-stats",
+      "destination": "/api/leetcode-stats"
+    }
+  ],
+  "functions": {
+    "api/leetcode-stats.js": {
+      "memory": 128,
+      "maxDuration": 10
+    }
+  },
+  "headers": [
+    {
+      "source": "/api/(.*)",
+      "headers": [
+        { "key": "Access-Control-Allow-Origin", "value": "*" },
+        { "key": "Cache-Control", "value": "s-maxage=1800, stale-while-revalidate=3600" }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,24 @@
+{
+  "username": "Hitesh_Bhattad",
+  "totalSolved": 23,
+  "easySolved": 19,
+  "mediumSolved": 4,
+  "hardSolved": 0,
+  "streak": 6,
+  "totalActiveDays": 15,
+  "platforms": [
+    {
+      "name": "LeetCode",
+      "active": true,
+      "solved": 23,
+      "url": "https://leetcode.com/u/Hitesh_Bhattad/"
+    },
+    {
+      "name": "GeeksforGeeks",
+      "active": false,
+      "statusText": "Coming soon",
+      "solved": 0,
+      "url": "https://www.geeksforgeeks.org/"
+    }
+  ]
+}
