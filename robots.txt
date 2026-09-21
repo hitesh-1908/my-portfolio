@@ -1,0 +1,6 @@
+# Robots.txt for Hitesh Bhattad Portfolio
+User-agent: *
+Allow: /
+Disallow: /api/
+
+Sitemap: https://hitesh-bhattad-portfolio.vercel.app/sitemap.xml

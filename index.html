@@ -5,22 +5,60 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="theme-color" content="#070908" />
-  <title>Hitesh Bhattad | Portfolio</title>
+  <title>Hitesh Bhattad | Java Backend Developer &amp; DSA Enthusiast — Portfolio</title>
 
+  <!-- Crawling & Indexing -->
+  <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+  <link rel="canonical" href="https://hitesh-bhattad-portfolio.vercel.app/" />
+
+  <!-- Favicon -->
   <link rel="icon" type="image/x-icon" href="favicon.ico" />
+
+  <!-- Primary Meta Tags -->
+  <meta name="description"
+    content="Hitesh Bhattad — Java Backend Developer and DSA Enthusiast. Explore an interactive terminal-themed portfolio showcasing skills in Java, Spring Boot, REST APIs, and 23+ DSA problems solved on LeetCode." />
+  <meta name="keywords"
+    content="Hitesh Bhattad, Java Developer, Spring Boot Developer, Backend Engineer, DSA Enthusiast, LeetCode, Terminal Portfolio, REST API, Java Backend, Portfolio Website, Hitesh Bhattad Portfolio" />
+  <meta name="author" content="Hitesh Bhattad" />
+
+  <!-- Open Graph / Facebook / LinkedIn -->
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Hitesh Bhattad — Portfolio" />
+  <meta property="og:locale" content="en_IN" />
+  <meta property="og:url" content="https://hitesh-bhattad-portfolio.vercel.app/" />
+  <meta property="og:title" content="Hitesh Bhattad | Java Backend Developer &amp; DSA Enthusiast" />
+  <meta property="og:description"
+    content="Interactive terminal-themed portfolio of Hitesh Bhattad — Java Backend Developer, Spring Boot, REST APIs, and DSA problem solver." />
   <meta property="og:image" content="https://hitesh-bhattad-portfolio.vercel.app/preview.png" />
   <meta property="og:image:width" content="1659" />
   <meta property="og:image:height" content="871" />
-  <meta property="og:url" content="https://hitesh-bhattad-portfolio.vercel.app/" />
+  <meta property="og:image:alt" content="Hitesh Bhattad's terminal-themed developer portfolio preview" />
+
+  <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Hitesh Bhattad | Java Backend Developer &amp; DSA Enthusiast" />
+  <meta name="twitter:description"
+    content="Interactive terminal portfolio — Java, Spring Boot, DSA, and open source projects." />
   <meta name="twitter:image" content="https://hitesh-bhattad-portfolio.vercel.app/preview.png" />
-  <meta name="description"
-    content="Hitesh Bhattad — Java Backend Developer and DSA Enthusiast. An interactive terminal portfolio showcasing skills, projects, and problem-solving expertise." />
-  <meta property="og:title" content="Hitesh Bhattad | Terminal Portfolio" />
-  <meta property="og:description"
-    content="Interactive terminal-themed portfolio of Hitesh Bhattad — Java Backend Developer and DSA Enthusiast." />
-  <meta name="keywords"
-    content="Hitesh Bhattad, Java Developer, Spring Boot, DSA, Terminal Portfolio, Backend Engineer" />
+  <meta name="twitter:image:alt" content="Hitesh Bhattad's terminal-themed developer portfolio" />
+
+  <!-- Structured Data (JSON-LD) — helps Google show rich results -->
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Person",
+      "name": "Hitesh Bhattad",
+      "url": "https://hitesh-bhattad-portfolio.vercel.app/",
+      "jobTitle": "Java Backend Developer",
+      "description": "Java Backend Developer and DSA Enthusiast with expertise in Spring Boot, REST APIs, and problem solving.",
+      "knowsAbout": ["Java", "Spring Boot", "REST API", "Data Structures", "Algorithms", "Backend Development"],
+      "sameAs": [
+        "https://github.com/hitesh-1908",
+        "https://leetcode.com/u/Hitesh_Bhattad/",
+        "https://www.linkedin.com/in/hitesh-bhattad/"
+      ]
+    }
+  </script>
 
   <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
   <script type="text/javascript">
@@ -3175,9 +3213,20 @@
 
     /* ── Project card highlight pulse (scroll-to target) ── */
     @keyframes card-highlight-pulse {
-      0%   { box-shadow: 0 0 0 0 rgba(74, 222, 128, 0.45), var(--shadow-sm); border-color: var(--green); }
-      50%  { box-shadow: 0 0 0 6px rgba(74, 222, 128, 0.0), var(--shadow-sm); border-color: var(--green); }
-      100% { box-shadow: var(--shadow-sm); border-color: var(--border); }
+      0% {
+        box-shadow: 0 0 0 0 rgba(74, 222, 128, 0.45), var(--shadow-sm);
+        border-color: var(--green);
+      }
+
+      50% {
+        box-shadow: 0 0 0 6px rgba(74, 222, 128, 0.0), var(--shadow-sm);
+        border-color: var(--green);
+      }
+
+      100% {
+        box-shadow: var(--shadow-sm);
+        border-color: var(--border);
+      }
     }
 
     .project-card.highlight-pulse {
@@ -3233,8 +3282,8 @@
             class="tab-prefix">~</span>skills</button>
         <button class="nav-tab" type="button" data-target="projects" onclick="switchSection('projects', true)"><span
             class="tab-prefix">~</span>projects</button>
-        <button class="nav-tab" type="button" data-target="achievements" onclick="switchSection('achievements', true)"><span
-            class="tab-prefix">~</span>achievements</button>
+        <button class="nav-tab" type="button" data-target="achievements"
+          onclick="switchSection('achievements', true)"><span class="tab-prefix">~</span>achievements</button>
         <button class="nav-tab" type="button" data-target="dsa" onclick="switchSection('dsa', true)"><span
             class="tab-prefix">~</span>dsa</button>
         <button class="nav-tab" type="button" data-target="contact" onclick="switchSection('contact', true)"><span
@@ -3297,13 +3346,9 @@
               </div>
             </div>
             <!-- ── Open Source Contributor card ── -->
-            <button
-              class="oss-contrib-card"
-              id="oss-contrib-card"
-              type="button"
+            <button class="oss-contrib-card" id="oss-contrib-card" type="button"
               aria-label="Open Source Contributor — RoboTech Forum. Click to view project in Projects tab."
-              onclick="switchSection('projects', true); setTimeout(function(){ var el = document.getElementById('p-rtf'); if(el){ el.scrollIntoView({behavior:'smooth', block:'center'}); el.classList.remove('highlight-pulse'); void el.offsetWidth; el.classList.add('highlight-pulse'); } }, 320);"
-            >
+              onclick="switchSection('projects', true); setTimeout(function(){ var el = document.getElementById('p-rtf'); if(el){ el.scrollIntoView({behavior:'smooth', block:'center'}); el.classList.remove('highlight-pulse'); void el.offsetWidth; el.classList.add('highlight-pulse'); } }, 320);">
               <div class="oss-contrib-inner">
                 <span class="oss-badge" aria-hidden="true">[OSS]</span>
                 <div class="oss-contrib-labels">
@@ -3780,7 +3825,8 @@
               <div class="project-preview-body">
                 <div class="project-preview-title">RoboTech Forum</div>
                 <div class="project-preview-subtitle">open source contribution / robotics community</div>
-                <div class="project-preview-lines"><span>live site: therobotechforum.in</span><span>fork: hitesh-1908/RTF-Website-New</span><span>upstream: TheRoboTechForum/RTF-Website-New</span></div>
+                <div class="project-preview-lines"><span>live site: therobotechforum.in</span><span>fork:
+                    hitesh-1908/RTF-Website-New</span><span>upstream: TheRoboTechForum/RTF-Website-New</span></div>
               </div>
             </div>
             <div class="project-content">
@@ -3788,17 +3834,23 @@
                   class="project-badge">Web</span><span class="project-badge">React</span><span
                   class="project-badge amber">open source</span></div>
               <h3>RoboTechForum Website &mdash; Open Source Contribution</h3>
-              <p>Contributed features and fixes to the official website of RoboTechForum, an open-source robotics community platform.</p>
+              <p>Contributed features and fixes to the official website of RoboTechForum, an open-source robotics
+                community platform.</p>
               <ul class="project-highlights">
                 <li>Contributed to a real-world open-source community project</li>
                 <li>Worked with an existing codebase and submitted improvements via fork &amp; PR</li>
                 <li>Collaborated with the upstream RoboTechForum organization</li>
               </ul>
-              <div class="tech-tags"><span class="tech-tag">React</span><span class="tech-tag">JavaScript</span><span class="tech-tag">HTML/CSS</span><span class="tech-tag">Git</span><span class="tech-tag">Open Source</span></div>
+              <div class="tech-tags"><span class="tech-tag">React</span><span class="tech-tag">JavaScript</span><span
+                  class="tech-tag">HTML/CSS</span><span class="tech-tag">Git</span><span class="tech-tag">Open
+                  Source</span></div>
               <div class="project-actions">
-                <a class="btn btn-primary" href="https://therobotechforum.in/" target="_blank" rel="noreferrer"><span aria-hidden="true">[&#x2197;]</span> Live Site</a>
-                <a class="btn btn-secondary" href="https://github.com/hitesh-1908/RTF-Website-New" target="_blank" rel="noreferrer"><span aria-hidden="true">[GH]</span> My Fork</a>
-                <a class="btn btn-secondary" href="https://github.com/TheRoboTechForum/RTF-Website-New" target="_blank" rel="noreferrer"><span aria-hidden="true">[GH]</span> Original Repo</a>
+                <a class="btn btn-primary" href="https://therobotechforum.in/" target="_blank" rel="noreferrer"><span
+                    aria-hidden="true">[&#x2197;]</span> Live Site</a>
+                <a class="btn btn-secondary" href="https://github.com/hitesh-1908/RTF-Website-New" target="_blank"
+                  rel="noreferrer"><span aria-hidden="true">[GH]</span> My Fork</a>
+                <a class="btn btn-secondary" href="https://github.com/TheRoboTechForum/RTF-Website-New" target="_blank"
+                  rel="noreferrer"><span aria-hidden="true">[GH]</span> Original Repo</a>
               </div>
             </div>
           </article>
@@ -3848,8 +3900,9 @@
               class="prompt-user">hitesh@dev</span><span>:</span><span class="prompt-path">~/portfolio</span><span
               class="prompt-symbol">$</span>
             <div class="input-wrapper"><input type="text" class="cmd-input-field" data-sec="achievements"
-                aria-label="Achievements terminal command" placeholder="type a command (help, projects, theme, contact...)"
-                autocomplete="off" spellcheck="false" /></div>
+                aria-label="Achievements terminal command"
+                placeholder="type a command (help, projects, theme, contact...)" autocomplete="off"
+                spellcheck="false" /></div>
           </div>
         </div>
       </section>
@@ -3868,11 +3921,14 @@
 
         <div class="dsa-metrics">
           <article class="metric-card"><span class="metric-label">Problems solved</span><strong
-              class="metric-value green" id="stat-solved-count">23+</strong><span class="metric-detail" id="stat-solved-detail">LeetCode (19E · 4M)</span></article>
+              class="metric-value green" id="stat-solved-count">23+</strong><span class="metric-detail"
+              id="stat-solved-detail">LeetCode (19E · 4M)</span></article>
           <article class="metric-card"><span class="metric-label">Active platforms</span><strong
-              class="metric-value cyan" id="stat-platforms-count">1</strong><span class="metric-detail" id="stat-platforms-detail">LeetCode · GeeksforGeeks (coming soon)</span></article>
+              class="metric-value cyan" id="stat-platforms-count">1</strong><span class="metric-detail"
+              id="stat-platforms-detail">LeetCode · GeeksforGeeks (coming soon)</span></article>
           <article class="metric-card"><span class="metric-label">Current streak</span><strong
-              class="metric-value amber" id="stat-streak-count">6 days</strong><span class="metric-detail" id="stat-streak-detail">15 active days total</span>
+              class="metric-value amber" id="stat-streak-count">6 days</strong><span class="metric-detail"
+              id="stat-streak-detail">15 active days total</span>
           </article>
           <article class="metric-card"><span class="metric-label">Favorite topics</span><strong
               class="metric-value">Arrays</strong><span class="metric-detail">+ Strings</span></article>
